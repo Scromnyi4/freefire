@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <div class="glass-card">
+            <div class="header">
+                <div class="title">FREE FIRE TOOL</div>
+                <div class="tabs">
+                    <button class="tab-button active" onclick="openTab('ban-tab')">
+                        <i class="fas fa-ban"></i> Ban Check
+                    </button>
+                    <button class="tab-button" onclick="openTab('player-tab')">
+                        <i class="fas fa-user"></i> Player Info
+                    </button>
+                </div>
+            </div>
+
+            <!-- Ban Check Tab -->
+            <div id="ban-tab" class="tab-content active">
+                <div class="input-group">
+                    <input type="text" id="ban-uid" placeholder="ENTER UID" maxlength="12">
+                    <button onclick="checkBan()">
+                        <span class="button-text">CHECK</span>
+                        <div class="button-loader"></div>
+                    </button>
+                </div>
+                <div id="ban-result" class="result-box">
+                    <div id="ban-result-content"></div>
+                </div>
+            </div>
+
+            <!-- Player Info Tab -->
+            <div id="player-tab" class="tab-content">
+                <div class="input-group">
+                    <select id="player-region">
+                        <option value="SG">Singapore</option>
+                        <option value="IN">India</option>
+                        <option value="ID">Indonesia</option>
+                        <option value="BR">Brazil</option>
+                    </select>
+                    <input type="text" id="player-uid" placeholder="ENTER UID" maxlength="12">
+                    <button onclick="getPlayerInfo()">
+                        <span class="button-text">SEARCH</span>
+                        <div class="button-loader"></div>
+                    </button>
+                </div>
+                <div id="player-result" class="result-box">
+                    <div id="player-result-content" class="player-info-grid"></div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>Made in Scromnyi <span class="check-mark">✓</span> 
+                   <a href="https://t.me/scromnyi_modz" target="_blank">
+                       <i class="fab fa-telegram"></i> t.me/scromnyi_modz
+                   </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+                          </html>
