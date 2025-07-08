@@ -1,0 +1,298 @@
+/* Базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Oxanium', sans-serif;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.hdqwalls.com/download/garena-free-fire-the-shooter-4k-6x-3840x2160.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -2;
+    filter: brightness(0.8);
+}
+
+.container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glass-card {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 102, 0, 0.1),
+        rgba(255, 102, 0, 0)
+    );
+    transform: rotate(30deg);
+    z-index: -1;
+}
+
+/* Заголовок и вкладки */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 15px rgba(255, 102, 0, 0.7);
+    letter-spacing: 3px;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    background: rgba(255, 102, 0, 0.1);
+    border: 1px solid rgba(255, 102, 0, 0.3);
+    border-radius: 8px;
+    color: white;
+    font-family: 'Oxanium', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tab-button:hover {
+    background: rgba(255, 102, 0, 0.2);
+}
+
+.tab-button.active {
+    background: rgba(255, 102, 0, 0.3);
+    border-color: rgba(255, 102, 0, 0.5);
+}
+
+.tab-button i {
+    font-size: 0.9em;
+}
+
+/* Контент вкладок */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Формы ввода */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+input, select {
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-family: 'Oxanium', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+input:focus, select:focus {
+    border-color: rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
+}
+
+select option {
+    background: #333;
+    color: white;
+}
+
+/* Кнопки */
+button {
+    position: relative;
+    padding: 12px;
+    background: rgba(255, 102, 0, 0.15);
+    border: 1px solid rgba(255, 102, 0, 0.3);
+    border-radius: 8px;
+    color: white;
+    font-family: 'Oxanium', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+button:hover {
+    background: rgba(255, 102, 0, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+}
+
+.button-text {
+    position: relative;
+    z-index: 2;
+}
+
+.button-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top: 3px solid rgba(255, 255, 255, 0.8);
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Результаты */
+.result-box {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border-left: 3px solid rgba(255, 102, 0, 0.5);
+    font-size: 1rem;
+    display: none;
+    margin-top: 10px;
+}
+
+/* Информация об игроке */
+.player-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.player-info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.player-info-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 4px;
+}
+
+.player-info-value {
+    font-size: 1rem;
+    color: #fff;
+    word-break: break-word;
+}
+
+/* Футер */
+.footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer a {
+    color: rgba(255, 102, 0, 0.8);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer i {
+    font-size: 1.1em;
+}
+
+.check-mark {
+    color: #4CAF50;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .glass-card {
+        padding: 20px;
+        border-radius: 15px;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .tab-button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    input, select, button {
+        padding: 10px 12px;
+    }
+
+    .player-info-grid {
+        grid-template-columns: 1fr;
+    }
+  }
